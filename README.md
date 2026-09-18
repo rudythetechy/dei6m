@@ -1,139 +1,194 @@
-# Week 1: C Fundamentals
+# C Programming - Week 1
 
---September 17–23--
+## Goal
+Build enough C and memory understanding to eventually understand GDB and binary exploitation from the core level.
 
-### Day 1
+---
 
-- [ ] CS50 Week 1: C lecture
-- [ ] Set up C compiler/environment
-- [ ] Compile and run `hello.c`
-- [ ] Write a program that takes your name and prints a greeting
-- [ ] Write a simple calculator
-- [ ] Understand:
+## Day 1 - C Fundamentals + Pointer Introduction ✅
 
-  - [ ] `int`
-  - [ ] `float`
-  - [ ] `char`
-  - [ ] variables
-  - [ ] `printf`
-  - [ ] `scanf`
-- [ ] Write down 3 things you couldn't explain immediately
+- [x] Review variables and basic data types
+- [x] Review if/else and logical operators
+- [x] Review loops
+- [x] Review functions and return values
+- [x] Review arrays and indexing
+- [x] Review strings and `\0`
+- [x] Understand integer division and `%`
+- [x] Understand declaration vs initialization
+- [x] Understand basic buffer overflow concept
+- [x] Begin pointers
+- [x] Understand `&x` as the address of `x`
+- [x] Understand `p` as a pointer containing an address
+- [x] Understand `*p` as the value at that address
+- [x] Understand changing a value through `*p`
 
-### Day 2
+### Day 1 takeaway
+`x` → value  
+`&x` → address of x  
+`p` → pointer containing an address  
+`*p` → value at that address
 
-- [ ] Continue CS50 C
-- [ ] Learn `if`
-- [ ] Learn `else`
-- [ ] Learn `else if`
-- [ ] Learn comparison operators
-- [ ] Learn logical operators
-- [ ] Build an age checker
-- [ ] Build an even/odd checker
-- [ ] Build a simple password checker
-- [ ] Test programs with unexpected input
+### C Mistakes to Remember
+1. **Integer division:** `10 / 3` with two `int`s gives `3`, not `3.333`.
+2. **Array bounds:** `numbers[5]` is not `null`; it is an out-of-bounds access if the array has indices `0–4`.
+3. **Strings:** `"Rudy"` is stored as `R u d y \0`, so the `\0` terminator also needs space.
+4. **Uninitialized variables:** `int a;` declares a variable but does not give it a defined value.
+5. **Pointers:** `p` is the pointer, while `*p` means the value stored at the address inside `p`.
+6. **`&x`:** `&x` gives the address of `x`.
+7. **`*p = 20`:** This changes the value at the address `p` points to. It does not change the address itself.
+8. **Pointer declaration:** `int *p;` means `p` is a pointer capable of storing the address of an `int`.
+9. **Array + pointer:** `int *p = numbers;` points to `numbers[0]`, not `numbers[3]`.
+10. **Pointer arithmetic:** If `p` points to `numbers[0]`, then `p + 1` points to `numbers[1]`, and `p + 2` points to `numbers[2]`.
 
-For each program:
 
-```text
-INPUT:
-What enters the program?
+---
 
-PROCESSING:
-What happens to it?
+## Day 2 - Pointers
 
-OUTPUT:
-What comes out?
-```
+- [ ] Learn pointer declarations
+- [ ] Learn addresses and memory locations
+- [ ] Practice `&` and `*`
+- [ ] Understand pointer assignment
+- [ ] Understand dereferencing
+- [ ] Understand changing variables through pointers
+- [ ] Practice pointers with functions
+- [ ] Practice pointers with arrays
+- [ ] Understand pointer arithmetic
+- [ ] Understand `p`, `p + 1`, `*p`, `*(p + 1)`
+- [ ] Write small pointer programs without AI
 
-### Day 3
+### Goal
+Be able to look at pointer code and explain exactly what each pointer contains and what memory it accesses.
 
-- [ ] Learn `for`
-- [ ] Learn `while`
-- [ ] Learn `do...while`
-- [ ] Print 1–100
-- [ ] Create a multiplication table
-- [ ] Create a factorial program
-- [ ] Create a prime-number checker
-- [ ] Intentionally break one program
-- [ ] Fix it yourself
+---
 
-### Day 4
+## Day 3 - Arrays, Strings & Pointers
 
-- [ ] Learn function declarations
-- [ ] Learn function definitions
-- [ ] Learn parameters
-- [ ] Learn return values
-- [ ] Rewrite your calculator using functions
-- [ ] Create `add()`
-- [ ] Create `subtract()`
-- [ ] Create `multiply()`
-- [ ] Create `divide()`
-- [ ] Predict outputs before running your programs
-
-### Day 5
-
-- [ ] Learn arrays
-- [ ] Create an integer array
-- [ ] Access individual elements
-- [ ] Loop through an array
-- [ ] Find the largest number
-- [ ] Find the smallest number
-- [ ] Calculate the average
-- [ ] Reverse an array
-- [ ] Deliberately access an invalid index
-- [ ] Observe what happens
-
-### Day 6
-
-- [ ] Learn what a C string actually is
+- [ ] Understand the relationship between arrays and pointers
+- [ ] Practice `numbers[i]` vs `*(numbers + i)`
+- [ ] Understand array memory layout
 - [ ] Practice character arrays
-- [ ] Use basic string functions
-- [ ] Write a character-counting program
-- [ ] Write a word-counting program
-- [ ] Build a simple password checker
-- [ ] Learn `argc`
-- [ ] Learn `argv`
-- [ ] Run a program using command-line arguments
-- [ ] Understand:
+- [ ] Understand C strings and `\0`
+- [ ] Practice strings using pointers
+- [ ] Understand common string-related mistakes
+- [ ] Practice out-of-bounds access conceptually
+- [ ] Write small programs using arrays + pointers
 
-  - [ ] What is `char name[20]`?
-  - [ ] Where is it stored?
-  - [ ] How much space does it occupy?
-  - [ ] What happens if the input is larger than expected?
+### Goal
+Stop thinking of arrays as isolated boxes and start understanding them as data occupying contiguous memory.
 
-### Day 7: Consolidation
+---
 
-- [ ] Pick one program from Days 1–6
-- [ ] Rewrite it without looking at your old code
-- [ ] Explain every line
-- [ ] Identify every input
-- [ ] Identify every variable
-- [ ] Explain every function
-- [ ] Predict its output for 5 inputs
-- [ ] Test your predictions
-- [ ] Deliberately introduce a bug
-- [ ] Debug it
-- [ ] Write weekly notes
+## Day 4 - Structs, Pointers & Dynamic Memory
 
-### End-of-week test
+- [ ] Review structs
+- [ ] Create and access structs
+- [ ] Understand pointers to structs
+- [ ] Learn `->`
+- [ ] Understand stack vs heap at a basic level
+- [ ] Learn `malloc`
+- [ ] Learn `free`
+- [ ] Understand why dynamically allocated memory exists
+- [ ] Practice allocating and freeing memory
+- [ ] Understand what happens when memory is used incorrectly
 
-Without AI, explain:
+### Goal
+Understand how programs create, access, and release memory.
 
-- [ ] What is a variable?
-- [ ] What is a function?
-- [ ] What is an array?
-- [ ] What happens when `scanf` receives input?
-- [ ] Difference between a character and a string
-- [ ] What happens when an array index is outside its intended range?
-- [ ] Difference between compiling and running
-- [ ] What happens to user input after it enters your program?
+---
 
---Week 1 finish line:--
+## Day 5 - Memory Bugs
 
-> Read a ~100-line C program → identify its inputs → trace its functions → understand its variables → explain its output → compile it → modify it → debug it.
+- [ ] Review buffer overflow
+- [ ] Understand out-of-bounds reads
+- [ ] Understand out-of-bounds writes
+- [ ] Understand dangling pointers
+- [ ] Understand use-after-free conceptually
+- [ ] Understand NULL pointers
+- [ ] Understand uninitialized pointers
+- [ ] Read small vulnerable C programs
+- [ ] Identify what memory operation is unsafe
+- [ ] Explain why the bug happens
 
---Primary resource:-- CS50 Week 1: C
---Reference:-- Beej's Guide to C
---Practice:-- Learn-C.org
---No GDB yet.--
+### Goal
+Given a small C program, identify where memory assumptions can fail.
 
+---
+
+## Day 6 - C Code Reading + Debugging
+
+- [ ] Read unfamiliar C programs
+- [ ] Trace variables manually
+- [ ] Trace function calls
+- [ ] Trace pointer changes
+- [ ] Trace array access
+- [ ] Predict program output before running it
+- [ ] Intentionally introduce bugs
+- [ ] Compile and fix them
+- [ ] Start basic GDB
+- [ ] Learn `break`
+- [ ] Learn `run`
+- [ ] Learn `next`
+- [ ] Learn `print`
+- [ ] Learn `info`
+
+### Goal
+Start observing what the program is actually doing instead of relying only on source code.
+
+---
+
+## Day 7 - Consolidation
+
+- [ ] Write a small C program from scratch
+- [ ] Use variables, functions, arrays and pointers
+- [ ] Use at least one struct
+- [ ] Allocate memory with `malloc`
+- [ ] Free allocated memory
+- [ ] Debug a bug without immediately asking AI
+- [ ] Read a ~100-line C program
+- [ ] Identify inputs
+- [ ] Trace important variables
+- [ ] Identify pointers and memory operations
+- [ ] Explain the program in your own words
+- [ ] Review all mistakes from the week
+
+### End-of-Week Test
+
+I should be able to:
+
+- [ ] Explain what a pointer is
+- [ ] Explain `&x`
+- [ ] Explain `*p`
+- [ ] Explain the difference between `p` and `*p`
+- [ ] Explain pointer arithmetic
+- [ ] Explain arrays vs pointers
+- [ ] Explain `\0`
+- [ ] Explain stack vs heap at a basic level
+- [ ] Explain `malloc` and `free`
+- [ ] Identify basic memory-safety bugs
+- [ ] Read basic C code without needing line-by-line AI explanations
+- [ ] Use basic GDB commands
+
+---
+
+## Rule for the Week
+
+Do not optimize the learning process instead of learning.
+
+Use AI for:
+- [ ] Explaining a concept after trying it yourself
+- [ ] Debugging after attempting to find the problem
+- [ ] Clarifying terminology
+
+Do NOT use AI to:
+- [ ] Write the exercise before attempting it
+- [ ] Give the answer immediately
+- [ ] Replace struggling with a concept
+
+### Main objective
+
+C → Memory → GDB → Exploitation
+
+The goal is not to "finish C."
+
+The goal is to understand what a program is doing at the memory level well enough that exploitation eventually makes sense.
